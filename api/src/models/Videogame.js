@@ -18,23 +18,23 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    relaseDate: {
+    released: {
       type: DataTypes.STRING,
     },
-    raiting: {
+    rating: {
       type: DataTypes.FLOAT,
     },
     platforms: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
-    image: {
+    background_image: {
       type: DataTypes.STRING,
-    },
-    createInDb: { /* todos los juegos que cree tienen esta propiedad */
+    }
+    /*createInDb: {  todos los juegos que cree tienen esta propiedad 
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true,
-    }
+    }*/
   });
 };

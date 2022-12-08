@@ -80,4 +80,43 @@ router.get('/' , async(req,res) => {
       res.status(400).send('Something went wrong!');
   }
 });
+
+router.post('/', async (req, res) => {
+  const { 
+    //background_image,
+    name, 
+    description, 
+    released, 
+    rating, 
+    genres, 
+    //platforms 
+  } = req.body;
+
+  try {
+    const newGame = await Videogame.create({
+      background_image: 'https://i.pinimg.com/564x/1e/1e/49/1e1e4996b0f17197b81e578450462c14.jpg',
+      name,
+      description,
+      released,
+      rating,
+      //platforms: platforms,
+    });
+
+    /* let genreDb = await Genres.findAll({
+      where: { name: genres}
+    });
+
+    newGame.addVideogame(genreDb)
+    res.status(200).send('Perfect! The videogame was created.'); */
+    genres.forEach(async (genre) => {
+      let gameGenres = await Genres.findOne({ where: { name: genre } });
+      await newGame.addGenre(gameGenres);
+    });
+
+    response.status(200).send(newGame);
+  } catch {
+    res.status(400).send('Sorry! The videogame was not created.');
+  }
+});
+
 module.exports = router;

@@ -27,7 +27,7 @@ router.get('/:idVideogame' , async (req,res,next) => {
     if (!idVideogame) return res.status(404).send("The ID is not specified");
     try {
         if(idVideogame.length<10) { //if (!created) {
-            let game = await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`);
+            let game = await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`, {headers:{"accept-encoding":'*'}});
             if (game) {
                 game = { 
                     id: game.data.id,

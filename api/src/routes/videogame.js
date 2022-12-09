@@ -68,62 +68,42 @@ router.get('/:idVideogame' , async (req,res,next) => {
 }); 
 
 
-router.post('/' , async (req,res,next) => {
-    const {
+router.post('/', async (req, res) => {
+    try {
+      let { 
+        background_image,
+        name, 
+        description, 
+        released, 
+        rating, 
+        platforms, 
+        genres, 
+      } = req.body;
+  
+      /* if (!name || !description || !platforms) {
+        return res.status(400).send("information is missing");
+      } */
+    
+      let newGame = await Videogame.create({
+        background_image, //'https://i.pinimg.com/564x/1e/1e/49/1e1e4996b0f17197b81e578450462c14.jpg',
         name,
         description,
         released,
         rating,
         platforms,
-        genres,
-        background_image
-    } = req.body;
-    if (name && description  && platforms && genres) {
-        try {
-            const [game , created] = await Videogame.findOrCreate ({
-                where: {
-                    name: name.toUpperCase()
-                },
-                defaults: {
-                    description,
-                    released,
-                    rating,
-                    platforms,
-                    background_image,
-                   // created: true
-                }
-            })
-            if (created)  {
-                genres.forEach (async (el) => {
-                    let genre = await Genres.findOne({ 
-                        where: {name: el} 
-                    });
-                    await game.setGenres (genre.id);
-                })
-                let gameReturned = await Videogame.findByPk(game.id,{  
-                    include:Genres 
-                })
-                gameReturned = {
-                    id: gameReturned.id,
-                    name: gameReturned.name,
-                    description: gameReturned.description,
-                    released: gameReturned.released,
-                    rating: gameReturned.rating,
-                    platforms: gameReturned.platforms,
-                    background_image: gameReturned.background_image,
-                }
-                return res.send(gameReturned);
-            }
-            else {
-                return res.send({error:"The game already exists"});
-            }
-        }
-        catch (error) {
-            response.status(400).send('Something went wrong!');
-        }
+      });
+  
+      console.log(req.body);
+       let genreDb = await Genres.findAll({
+        where: { name: genres}
+      });
+  
+      newGame.addGenres(genreDb)
+      res.status(200).send('Perfect! The videogame was created.');
+    } catch {
+      res.status(400).send('Sorry! The videogame was not created.');
     }
-    res.status(404).send("Error");
-});
+  });
 
 
 

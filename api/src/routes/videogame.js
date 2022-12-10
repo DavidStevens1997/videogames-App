@@ -21,51 +21,52 @@ function removeTags(str) {
 */
 
 
-router.get('/:idVideogame' , async (req,res,next) => {
-    //const {idVideogame , created} = req.params;
-    const {idVideogame} = req.params;
-    if (!idVideogame) return res.status(404).send("The ID is not specified");
+router.get('/:idVideogame', async (req, res) => {
+    const { idVideogame } = req.params;
+  
     try {
-        if(idVideogame.length<10) { //if (!created) {
-            let game = await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`, {headers:{"accept-encoding":'*'}});
-            if (game) {
-                game = { 
-                    id: game.data.id,
-                    name: game.data.name,
-                    background_image: game.data.background_image,
-                    description: game.data.description_raw , //removeTags(game.data.description),
-                    released: game.data.released,
-                    rating: game.data.rating,
-                    platforms: game.data.platforms.map (el => (
-                        el = {id: el.platform.id , name:el.platform.name})),
-                    genres: game.data.genres.map (el => (el= {id:el.id , name:el.name}))
-                }
-                return res.send(game);
-            }
-            res.status(404).send("There is no wanted game");
-        }
-        else {
-            let game = await Videogame.findByPk(idVideogame, { include: Genres });
-            if(game) {
-                game = {
-                    id: game.id,
-                    name: game.name,
-                    background_image: game.background_image,
-                    description: game.description,
-                    released: game.released,
-                    rating: game.rating,
-                    platforms: game.platforms,
-                    genres: game.genres
-                }
-                return res.send(game);
-            }
-        }
+      let gameToReturn;
+  
+      if (idVideogame.length > 10) {
+        let searchedGameByDatabase = await Videogame.findAll({
+          where: {
+            id: idVideogame,
+          },
+          include: Genres,
+        });
+  
+        gameToReturn = searchedGameByDatabase.map((videogame) => {
+          return {
+            background_image: videogame.background_image,
+            name: videogame.name,
+            genres: videogame.genres.map((genre) => genre.name),
+            description: videogame.description,
+            released: videogame.released,
+            rating: videogame.rating,
+            platforms: videogame.platforms,
+          };
+        });
+      } else {
+        let searchedGameByApi = await axios.get(`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`, {headers:{"accept-encoding":'*'}});
+        let VideogameInfo = searchedGameByApi.data;
+        console.log(VideogameInfo);
+        gameToReturn = {
+          background_image: VideogameInfo.background_image,
+          name: VideogameInfo.name,
+          genres: VideogameInfo.genres.map((genre) => genre.name),
+          description: VideogameInfo.description_raw,
+          released: VideogameInfo.released,
+          rating: VideogameInfo.rating,
+          platforms: VideogameInfo.platforms.map((plat) => plat.platform.name),
+        };
+      }
+  
+      return res.status(200).send(gameToReturn);
+    } catch (error) {
+        console.log(error);
+      res.status(404).send('The ID was not found.');
     }
-    catch (error) {
-        res.status(404).send("There is no wanted game"); 
-        return next();
-    }
-}); 
+  });
 
 
 router.post('/', async (req, res) => {

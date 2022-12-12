@@ -4,12 +4,13 @@ const initialState = {
 }
 
 function rootReducer (state= initialState, action){
-    switch (acton.type) {
+    switch (action.type) {
         case 'GET_VIDEOGAMES':
           return{
             ...state,
             videogames: action.payload
           }
+          default: return state;
     }
 }
 

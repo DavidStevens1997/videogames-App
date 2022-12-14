@@ -1,7 +1,7 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default function LandingPage(){
+ function LandingPage(){
     <div>
         <h1>Welcome to the best video game page!</h1>
         <Link to ='/home'>
@@ -9,3 +9,5 @@ export default function LandingPage(){
         </Link>
     </div>
 }
+
+export default LandingPage;

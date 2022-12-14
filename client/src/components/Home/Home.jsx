@@ -2,7 +2,7 @@ import React from "react";
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from "react-router-dom";
-import { getVideogames } from '../actions';
+import { getVideogames } from '../../actions';
 import GameCard from "../Card/Card";
 
 export default function Home(){
@@ -51,14 +51,21 @@ export default function Home(){
             <option value="Created">Created</option>
             <option value="Existing">Existing</option>
          </select>
-         {allVideogames?.map(el =>{
-            return (
-               <Link to={"/home/" + el.id}>
-                  <GameCard name={el.name} background_image={el.background_image} genre={el.genre} id={el.id}/>
-               </Link>
-            );
-           })
-         }
+         <div>
+            {allVideogames?.map((videogame) =>{
+               return (
+                  <section>
+                     <Link to={"/videogame/" + videogame.id}>
+                        <GameCard 
+                        name={videogame.name} 
+                        image={videogame.background_image} 
+                        genre={videogame.genre} 
+                        id={videogame.id}/>
+                     </Link>
+                  </section>
+               );
+            })}
+         </div>
         </div>
     </div>
  )

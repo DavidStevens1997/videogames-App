@@ -1,11 +1,13 @@
-
+import {
+  GET_VIDEOGAMES,
+} from '../actions';
 const initialState = {
     videogames: []
-}
+};
 
-function rootReducer (state= initialState, action){
+export default function rootReducer (state= initialState, action){
     switch (action.type) {
-        case 'GET_VIDEOGAMES':
+        case GET_VIDEOGAMES:
           return{
             ...state,
             videogames: action.payload
@@ -13,5 +15,3 @@ function rootReducer (state= initialState, action){
           default: return state;
     }
 }
-
-export default rootReducer;

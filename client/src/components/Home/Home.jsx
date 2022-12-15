@@ -51,6 +51,7 @@ export default function Home(){
             <option value="Created">Created</option>
             <option value="Existing">Existing</option>
          </select>
+
          <div>
             {allVideogames?.map((videogame) =>{
                return (
@@ -59,7 +60,7 @@ export default function Home(){
                         <GameCard 
                         name={videogame.name} 
                         image={videogame.background_image} 
-                        genre={videogame.genre} 
+                        genres={videogame.genres} 
                         id={videogame.id}/>
                      </Link>
                   </section>

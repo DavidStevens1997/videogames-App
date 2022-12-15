@@ -9,13 +9,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
-    <Router>
-      <Provider store={store}>
         <App />
-      </Provider>
-    </Router>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   
   document.getElementById('root')
 );

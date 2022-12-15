@@ -25,7 +25,7 @@ export default function Home(){
         <Link to= '/videogame'>Create Videogame</Link>
         <h1>THE VIDEOGAME DATABASE - David Hurtado</h1>
         <button onClick={e=> {handleClick(e)}}>
-            volver a cargar todos los juegos
+            Load all games
         </button>
         <div>
          <select>

@@ -4,14 +4,24 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Link } from "react-router-dom";
 import { getVideogames } from '../../actions';
 import GameCard from "../Card/Card";
+import Paginado from "../Paginado/Paginado";
 
 export default function Home(){
 
  const dispatch = useDispatch()
  const allVideogames = useSelector((state) => state.videogames) //esto reemplaza map stateToProps
  const [currentPage,setCurrentPage] = useState(1)
- const [videogamesPerPage,setVideogamesPerPage] = useState(6)
- 
+ const [videogamesPerPage,setVideogamesPerPage] = useState(15)
+ const indexOfLastVideogame = currentPage * videogamesPerPage
+ const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage
+ const currentVideogames = allVideogames.slice(indexOfFirstVideogame,indexOfLastVideogame)
+ const [btnActiveNext,setBtnActiveNext] = useState (false)
+ const [btnActivePrev,setBtnActivePrev] = useState (false)
+
+ const paginado = (pageNumber) => {
+   setCurrentPage(pageNumber)
+ }
+
  useEffect(()=>{
     dispatch(getVideogames());
  },[dispatch])
@@ -19,6 +29,22 @@ export default function Home(){
  function handleClick(e){
     e.preventDefault();
     dispatch(getVideogames());
+ }
+
+ const nextPage = () => {
+   console.log(currentPage);
+   if (currentPage > 4) {
+      setBtnActiveNext(true);
+   }else{
+      setCurrentPage (currentPage + 1);
+   }
+ }
+ const previousPage = () => {
+   if (currentPage < 0) {
+      setBtnActivePrev(true);
+   }else{
+      setCurrentPage (currentPage - 1);
+   }
  }
 
  return(
@@ -55,7 +81,7 @@ export default function Home(){
          </select>
 
          <div>
-            {allVideogames?.map((videogame) =>{
+            {currentVideogames?.map((videogame) =>{
                return (
                   <section>
                      <Link to={"/videogame/" + videogame.id}>
@@ -69,6 +95,12 @@ export default function Home(){
                );
             })}
          </div>
+         <button onClick={previousPage} disabled={btnActivePrev}>Previous</button>
+            <Paginado
+            videogamesPerPage={videogamesPerPage}
+            allVideogames={allVideogames.length}
+            paginado={paginado}/>
+            <button onClick={nextPage} disabled={btnActiveNext}>next</button>
         </div>
     </div>
  )

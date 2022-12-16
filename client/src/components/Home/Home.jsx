@@ -9,6 +9,8 @@ export default function Home(){
 
  const dispatch = useDispatch()
  const allVideogames = useSelector((state) => state.videogames) //esto reemplaza map stateToProps
+ const [currentPage,setCurrentPage] = useState(1)
+ const [videogamesPerPage,setVideogamesPerPage] = useState(6)
  
  useEffect(()=>{
     dispatch(getVideogames());

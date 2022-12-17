@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getVideogames } from '../../actions';
 import GameCard from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
+import '../Home/Home.css'
 
 export default function Home(){
 
@@ -80,7 +81,7 @@ export default function Home(){
             <option value="Existing">Existing</option>
          </select>
 
-         <div>
+         <div className="videogamesContainer">
             {currentVideogames?.map((videogame) =>{
                return (
                   <section>

@@ -45,7 +45,7 @@ router.get('/' , async(req,res) => {
       res.status(400).send('Something went wrong!');
     } else {
       let resultsToReturn = [];
-      const rawApi = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=10`, {headers:{"accept-encoding":'*'}});
+      const rawApi = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=30`, {headers:{"accept-encoding":'*'}});
         let videoGamesUrl = rawApi.data.results;
         let gameInfo = videoGamesUrl.map((videogame) => {
           return {

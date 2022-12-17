@@ -1,17 +1,19 @@
-/* .GameCard {
-    height: 25rem;
-    background-color: #202020;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: transform 0.5s ease-in-out;
+.gameCard {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  color: green;
+  background-color: rgb(10, 15, 10) ;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  }
+
+  .gameCard:hover {
+    color: lightgreen;
   }
   
-  .GameCard img {
-    border-radius: 5px 5px;
-    object-fit: cover;
+  .gameCard img {
+    width: 300px;
+    height: 200px;
   }
   
-  .GameCard .cardContainer {
-    padding: 1rem 2rem;
-  }
-   */

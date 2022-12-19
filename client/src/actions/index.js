@@ -1,6 +1,8 @@
 import axios from 'axios';
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES';
 export const GET_GENRES = 'GET_GENRES';
+export const FILTER_CREATED = 'FILTER_CREATED';
+export const ORDER_NAME = 'ORDER_NAME';
 
 export function getVideogames(){
     return async function(dispatch){
@@ -20,4 +22,18 @@ export function getGenres(){
            payload: jsonGenres.data, 
         });
     };
+}
+
+export function filterCreated(payload){
+    return {
+        type: FILTER_CREATED,
+        payload, 
+    }
+}
+
+export function orderName(payload){
+    return{
+        type: ORDER_NAME,
+        payload,
+    }
 }

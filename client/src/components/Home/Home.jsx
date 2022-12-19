@@ -2,7 +2,11 @@ import React from "react";
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from "react-router-dom";
-import { getVideogames } from '../../actions';
+import { 
+   getVideogames,
+   filterCreated,
+   orderName, 
+} from '../../actions';
 import GameCard from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
 import '../Home/Home.css'
@@ -11,6 +15,7 @@ export default function Home(){
 
  const dispatch = useDispatch()
  const allVideogames = useSelector((state) => state.videogames) //esto reemplaza map stateToProps
+ const [order, setOrder] = useState('')
  const [currentPage,setCurrentPage] = useState(1)
  const [videogamesPerPage,setVideogamesPerPage] = useState(15)
  const indexOfLastVideogame = currentPage * videogamesPerPage
@@ -21,7 +26,7 @@ export default function Home(){
 
  const paginado = (pageNumber) => {
    setCurrentPage(pageNumber)
- }
+ };
 
  useEffect(()=>{
     dispatch(getVideogames());
@@ -30,7 +35,18 @@ export default function Home(){
  function handleClick(e){
     e.preventDefault();
     dispatch(getVideogames());
- }
+ };
+
+ function handleFilterCreated(e){
+   dispatch(filterCreated(e.target.value))
+ };
+
+ function handleSort(e){
+   e.preventDefault();
+   dispatch(orderName(e.target.value))
+   setCurrentPage(1);
+   setOrder(`Oreder ${e.target.value}`)
+ };
 
  const nextPage = () => {
    console.log(currentPage);
@@ -39,15 +55,17 @@ export default function Home(){
    }else{
       setCurrentPage (currentPage + 1);
    }
- }
+ };
+
  const previousPage = () => {
    if (currentPage < 0) {
       setBtnActivePrev(true);
    }else{
       setCurrentPage (currentPage - 1);
    }
- }
+ };
 
+ 
  return(
     <div>
       {/* <h1>HOME</h1> */}
@@ -65,15 +83,15 @@ export default function Home(){
             <option value="des">⬇ Descending</option>
          </select>
 
-         <select>
+         <select onChange={e => handleSort(e)}>
             <option value="" selected>
                Sort by rating!
             </option>
             <option value="asc">⬆ Ascending</option>
-            <option value="des">⬇ Descending</option>
+            <option value="desc">⬇ Descending</option>
          </select>
 
-         <select>
+         <select onChange={e => handleFilterCreated(e)}>
             <option value="All" selected>
                All Videogames
             </option>

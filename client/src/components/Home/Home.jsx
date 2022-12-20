@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { 
    getVideogames,
    filterCreated,
-   orderName, 
+   orderName,
+   orderRating, 
 } from '../../actions';
+import SearchBar from "../SearchBar/SearchBar";
 import GameCard from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
 import '../Home/Home.css'
@@ -39,11 +41,19 @@ export default function Home(){
 
  function handleFilterCreated(e){
    dispatch(filterCreated(e.target.value))
+   setCurrentPage(1);
  };
 
- function handleSort(e){
+ function nameHandleSort(e){
    e.preventDefault();
    dispatch(orderName(e.target.value))
+   setCurrentPage(1);
+   setOrder(`Oreder ${e.target.value}`)
+ };
+
+ function ratingHandleSort(e){
+   e.preventDefault();
+   dispatch(orderRating(e.target.value))
    setCurrentPage(1);
    setOrder(`Oreder ${e.target.value}`)
  };
@@ -71,19 +81,20 @@ export default function Home(){
       {/* <h1>HOME</h1> */}
         <Link to= '/videogame'>Create Videogame</Link>
         <h1>THE VIDEOGAME DATABASE - David Hurtado</h1>
+        <SearchBar/>
         <button onClick={e=> {handleClick(e)}}>
             Load all games
         </button>
         <div>
-         <select>
+         <select onChange={e => nameHandleSort(e)}>
             <option value="" selected>
                Sort by alphabet!
             </option>
             <option value="asc">⬆ Ascending</option>
-            <option value="des">⬇ Descending</option>
+            <option value="desc">⬇ Descending</option>
          </select>
 
-         <select onChange={e => handleSort(e)}>
+         <select onChange={e => ratingHandleSort(e)}>
             <option value="" selected>
                Sort by rating!
             </option>
@@ -107,19 +118,21 @@ export default function Home(){
                         <GameCard 
                         name={videogame.name} 
                         image={videogame.background_image} 
-                        genres={videogame.genres} 
+                        genres={videogame.genres}
+                        rating={videogame.rating} 
                         id={videogame.id}/>
                      </Link>
                   </section>
                );
             })}
          </div>
-         <button onClick={previousPage} disabled={btnActivePrev}>Previous</button>
+         
             <Paginado
             videogamesPerPage={videogamesPerPage}
             allVideogames={allVideogames.length}
             paginado={paginado}/>
-            <button onClick={nextPage} disabled={btnActiveNext}>next</button>
+            <button onClick={previousPage} disabled={btnActivePrev}>◄</button>
+            <button onClick={nextPage} disabled={btnActiveNext}>►</button>
         </div>
     </div>
  )

@@ -3,6 +3,8 @@ import {
   GET_GENRES,
   FILTER_CREATED,
   ORDER_NAME,
+  ORDER_RATING,
+  GET_NAME_VIDEOGAMES,
 } from '../actions';
 const initialState = {
     videogames: [],
@@ -58,7 +60,39 @@ export default function rootReducer (state= initialState, action){
           return {
             ...state,
             videogames: sortedArr,
+          };
+
+        case ORDER_RATING:
+          let sortedArrr = action.payload === 'asc' ?
+              state.videogames.sort(function (a, b){
+                if (a.rating > b.rating){
+                  return 1;
+                }
+                if (b.rating > a.rating) {
+                  return -1;
+                }
+                return 0;
+              }) : 
+              state.videogames.sort(function (a, b){
+                if (a.rating > b.rating){
+                  return -1;
+                }
+                if (b.rating > a.rating) {
+                  return 1;
+                }
+                return 0;
+              })
+          return {
+            ...state,
+            videogames: sortedArrr,
+          };
+        
+        case GET_NAME_VIDEOGAMES:
+          return{
+            ...state,
+            videogames: action.payload
           }
+
 
           default: return state;
     }

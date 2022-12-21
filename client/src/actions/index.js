@@ -56,3 +56,10 @@ export function getNameVideogames(name){
             });
     }
 }
+
+export function postVideogame(payload){
+    return async function (dispatch){
+        const response = await axios.post("http://localhost:3001/videogame", payload);
+        return response;
+    }
+}

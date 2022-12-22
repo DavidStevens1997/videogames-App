@@ -93,6 +93,11 @@ export default function rootReducer (state= initialState, action){
             videogames: action.payload
           }
 
+        case POST_VIDEOGAME:
+          return{
+            ...state,
+          }
+
 
           default: return state;
     }

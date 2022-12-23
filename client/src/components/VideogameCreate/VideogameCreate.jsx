@@ -43,8 +43,39 @@ export default function VideogameCreate(){
 
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(postVideogame(input))
-        alert("Videogame created!")
+        let videogame = input;
+        videogame.platforms = Object.values(selectPlatforms)
+        
+
+        if (!videogame.name) {
+            alert('Name is required!');
+            return;
+          }
+      
+        if (!videogame.description) {
+        alert('Description is required!');
+        return;
+        }
+    
+        if (!videogame.platforms || videogame.platforms[0] === '') {
+        alert('Platform is required!');
+        return;
+        }
+    
+        if (!videogame.genres) {
+        alert('Genre is required!');
+        return;
+        }
+
+        if (videogame.rating < 1 || videogame.rating > 5) {
+            alert('Your rating should be from 1 to 5');
+            return;
+            }
+        
+        if (!videogame.rating) videogame.rating = 0;
+        console.log(videogame);
+        dispatch(postVideogame(videogame))
+        alert('Videogame created!')
         setInput({
             background_image: "",
             name: "", 
@@ -54,7 +85,7 @@ export default function VideogameCreate(){
             genres: [],
             description: "",
         })
-        history.push('/home')
+        history.push('/home');
     }
 
     useEffect(() => {
@@ -72,7 +103,7 @@ export default function VideogameCreate(){
                 type="text"
                 value={input.background_image}
                 name= "background_image"
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 />
             </div>
             <div>
@@ -81,7 +112,7 @@ export default function VideogameCreate(){
                 type="text"
                 value={input.name}
                 name= "name"
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 />
             </div>
             <div>
@@ -90,7 +121,7 @@ export default function VideogameCreate(){
                 type="string"
                 value={input.released}
                 name= "released"
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 />
             </div>
             <div>
@@ -99,7 +130,7 @@ export default function VideogameCreate(){
                 type="number"
                 value={input.rating}
                 name= "rating"
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 />
             </div>
             <div className="descriptionContainer">
@@ -109,7 +140,7 @@ export default function VideogameCreate(){
                 /* style="width:200px;height:15px" */
                 value={input.description}
                 name= "description"
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 />
             </div>
             <select name="platformOne" onChange={(e) => handlePlatform(e)}>

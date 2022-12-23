@@ -5,6 +5,7 @@ import {
   ORDER_NAME,
   ORDER_RATING,
   GET_NAME_VIDEOGAMES,
+  CREATE_VIDEOGAME,
 } from '../actions';
 const initialState = {
     videogames: [],
@@ -93,7 +94,7 @@ export default function rootReducer (state= initialState, action){
             videogames: action.payload
           }
 
-        case POST_VIDEOGAME:
+        case CREATE_VIDEOGAME:
           return{
             ...state,
           }

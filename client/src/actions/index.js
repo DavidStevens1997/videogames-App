@@ -5,6 +5,7 @@ export const FILTER_CREATED = 'FILTER_CREATED';
 export const ORDER_NAME = 'ORDER_NAME';
 export const ORDER_RATING = 'ORDER_RATING';
 export const GET_NAME_VIDEOGAMES = 'GET_NAME_VIDEOGAMES';
+export const CREATE_VIDEOGAME = 'CREATE_VIDEOGAME';
 
 export function getVideogames(){
     return async function(dispatch){
@@ -60,6 +61,9 @@ export function getNameVideogames(name){
 export function postVideogame(payload){
     return async function (dispatch){
         const response = await axios.post("http://localhost:3001/videogame", payload);
-        return response;
+        return dispatch({
+            type: CREATE_VIDEOGAME,
+            payload: response,
+        });
     }
 }

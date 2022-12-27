@@ -6,6 +6,7 @@ export const ORDER_NAME = 'ORDER_NAME';
 export const ORDER_RATING = 'ORDER_RATING';
 export const GET_NAME_VIDEOGAMES = 'GET_NAME_VIDEOGAMES';
 export const CREATE_VIDEOGAME = 'CREATE_VIDEOGAME';
+export const VIDEOGAME_DETAIL = 'VIDEOGAME_DETAIL';
 
 export function getVideogames(){
     return async function(dispatch){
@@ -65,5 +66,19 @@ export function postVideogame(payload){
             type: CREATE_VIDEOGAME,
             payload: response,
         });
+    }
+}
+
+export function videgameDetail(id){
+    return async function (dispatch){
+        try{
+            var json = await axios.get("http://localhost:3001/videogames" + id);
+            return dispatch({
+                type: VIDEOGAME_DETAIL,
+                payload: json.data
+            })
+        }catch(error){
+            console.log(error);
+        }
     }
 }

@@ -6,11 +6,13 @@ import {
   ORDER_RATING,
   GET_NAME_VIDEOGAMES,
   CREATE_VIDEOGAME,
+  VIDEOGAME_DETAIL
 } from '../actions';
 const initialState = {
     videogames: [],
     genres: [],
-    filterVideogames: []
+    filterVideogames: [],
+    videogameDetail: []
 };
 
 export default function rootReducer (state= initialState, action){
@@ -97,6 +99,12 @@ export default function rootReducer (state= initialState, action){
         case CREATE_VIDEOGAME:
           return{
             ...state,
+          }
+
+        case VIDEOGAME_DETAIL:
+          return{
+            ...state,
+            videogameDetail: action.payload 
           }
 
 

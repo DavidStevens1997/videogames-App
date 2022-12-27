@@ -41,6 +41,13 @@ export default function VideogameCreate(){
         })
     }
 
+    function handleDelte(e){
+        setInput({
+            ...input,
+            genres: input.genres.filter( gen => gen !== e)
+        })
+      }; 
+
     function handleSubmit(e){
         e.preventDefault();
         let videogame = input;
@@ -97,6 +104,7 @@ export default function VideogameCreate(){
             <Link to= '/home'><button>Back</button></Link>
             <h1>Create your videogame!</h1>
             <form onSubmit={(e) => handleSubmit(e)}>
+            <button type='submit'>Create Videogame</button>
             <div>
                 <label>Url-Image:</label>
                 <input
@@ -166,10 +174,15 @@ export default function VideogameCreate(){
                 ))}
             </select>
 
-            <ul><li>{input.genres.map(e => e + " ,")}</li></ul>
+            {input.genres.map(e => 
+                <div>
+                    <p>{e}</p>
+                    <button className="buttonX" onClick={() => handleDelte(e)}>X</button>
+                </div>
+                )}
             
-            <button type='submit'>Create Videogame</button>
             </form>
+            
         </div>
     )
 

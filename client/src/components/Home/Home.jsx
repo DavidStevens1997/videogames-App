@@ -81,7 +81,7 @@ export default function Home(){
       {/* <h1>HOME</h1> */}
         <Link to= '/videogame'>Create Videogame</Link>
         <h1>THE VIDEOGAME DATABASE - David Hurtado</h1>
-        <SearchBar/>
+        <SearchBar />
         <button onClick={e=> {handleClick(e)}}>
             Load all games
         </button>
@@ -114,7 +114,7 @@ export default function Home(){
             {currentVideogames?.map((videogame) =>{
                return (
                   <section>
-                     <Link to={"/videogame/" + videogame.id}>
+                     <Link to={'/videogame/' + videogame.id}>
                         <GameCard 
                         name={videogame.name} 
                         image={videogame.background_image} 

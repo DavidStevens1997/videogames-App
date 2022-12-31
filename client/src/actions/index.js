@@ -59,10 +59,10 @@ export function getNameVideogames(name){
     }
 }
 
-export function videgameDetail(id){
+export function videogameDetail(id){
     return async function (dispatch){
         try{
-            var json = await axios.get("http://localhost:3001/videogame" + id);
+            var json = await axios.get("http://localhost:3001/videogame/" + id);
             id.length > 15 ? (json.data = json.data[0]) : (json = json);
             return dispatch({
                 type: VIDEOGAME_DETAIL,

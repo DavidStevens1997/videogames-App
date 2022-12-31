@@ -60,26 +60,30 @@ export default function Home(){
 
  const nextPage = () => {
    console.log(currentPage);
-   if (currentPage > 4) {
+   if (currentPage === 3) {
       setBtnActiveNext(true);
+      setBtnActiveNext(false);
    }else{
       setCurrentPage (currentPage + 1);
    }
  };
 
  const previousPage = () => {
-   if (currentPage < 0) {
+   if (currentPage === 1) {
       setBtnActivePrev(true);
+      setBtnActivePrev(false);
    }else{
       setCurrentPage (currentPage - 1);
    }
  };
 
+
+
  
  return(
     <div>
       {/* <h1>HOME</h1> */}
-        <Link to= '/videogame'>Create Videogame</Link>
+        <Link to= '/videogame'><button>Create Videogame</button></Link>
         <h1>THE VIDEOGAME DATABASE - David Hurtado</h1>
         <SearchBar />
         <button onClick={e=> {handleClick(e)}}>
@@ -114,7 +118,7 @@ export default function Home(){
             {currentVideogames?.map((videogame) =>{
                return (
                   <section>
-                     <Link to={'/videogame/' + videogame.id}>
+                     <Link to={'/home/' + videogame.id}>
                         <GameCard 
                         name={videogame.name} 
                         image={videogame.background_image} 

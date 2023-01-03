@@ -60,7 +60,7 @@ export default function Home(){
 
  const nextPage = () => {
    console.log(currentPage);
-   if (currentPage === 3) {
+   if (currentPage === 7) {
       setBtnActiveNext(true);
       setBtnActiveNext(false);
    }else{
@@ -83,13 +83,15 @@ export default function Home(){
  return(
     <div>
       {/* <h1>HOME</h1> */}
+      <div>
         <Link to= '/videogame'><button>Create Videogame</button></Link>
-        <h1>THE VIDEOGAME DATABASE - David Hurtado</h1>
         <SearchBar />
+      </div>
+        <h1>THE VIDEOGAME DATABASE - David Hurtado</h1>
+        <div>
         <button onClick={e=> {handleClick(e)}}>
             Load all games
         </button>
-        <div>
          <select onChange={e => nameHandleSort(e)}>
             <option value="" selected>
                Sort by alphabet!

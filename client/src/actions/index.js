@@ -7,6 +7,7 @@ export const ORDER_RATING = 'ORDER_RATING';
 export const GET_NAME_VIDEOGAMES = 'GET_NAME_VIDEOGAMES';
 export const CREATE_VIDEOGAME = 'CREATE_VIDEOGAME';
 export const VIDEOGAME_DETAIL = 'VIDEOGAME_DETAIL';
+export const FILTER_GENRE = 'FILTER_GENRE';
 
 export function getVideogames(){
     return async function(dispatch){
@@ -84,3 +85,10 @@ export function postVideogame(payload){
     }
 }
 
+
+export function filterGenre(payload){
+    return {
+        type: FILTER_GENRE,
+        payload,
+    }
+}

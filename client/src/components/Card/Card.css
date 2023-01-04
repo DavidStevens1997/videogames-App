@@ -2,14 +2,16 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-  color: rgb(41, 224, 41);
+  color: #0BE321;
   background-color: rgb(10, 15, 10) ;
-  border: 2px solid lightgray;
+  border: 5px solid lightgray;
   border-radius: 10px;
   }
 
   .gameCard:hover {
-    color: rgb(225, 243, 225);
+    color: #F2FFFB !important;
+    background: #000000;
+    background: linear-gradient(to top, #000000, #0BE321);
   }
   
   .gameCard img {

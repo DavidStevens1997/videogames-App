@@ -6,7 +6,8 @@ import {
   ORDER_RATING,
   GET_NAME_VIDEOGAMES,
   CREATE_VIDEOGAME,
-  VIDEOGAME_DETAIL
+  VIDEOGAME_DETAIL,
+  FILTER_GENRE
 } from '../actions';
 const initialState = {
     videogames: [],
@@ -107,6 +108,16 @@ export default function rootReducer (state= initialState, action){
             videogameDetail: action.payload 
           }
 
+        case FILTER_GENRE:
+          const filteredVideogameGenre = state.filterVideogames;
+          const genreFilter = action.payload === 'All'
+          ? filteredVideogameGenre
+          : filteredVideogameGenre.filter((videogame) => 
+          videogame.genres.includes(action.payload))
+          return{
+            ...state,
+            videogames: genreFilter,
+          }
 
           default: return state;
     }

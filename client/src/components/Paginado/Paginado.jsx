@@ -1,6 +1,7 @@
 import React from 'react';
+import "./Paginado.css";
 
-export default function Paginado ({videogamesPerPage, allVideogames, paginado}){
+export default function Paginado ({videogamesPerPage, allVideogames, paginado, currentPage}){
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(allVideogames/videogamesPerPage); i++) {
@@ -8,10 +9,10 @@ export default function Paginado ({videogamesPerPage, allVideogames, paginado}){
     }
 
     return (
-        <nav>
+        <div className='pagination'>
             { pageNumbers.map((num) =>{
-                return <button onClick={() => paginado(num)}>{num}</button>
+                return <button onClick={() => paginado(num)}  className={num === currentPage ? 'active' : ''}>{num}</button>
             })}
-        </nav>
+        </div>
     )
 }

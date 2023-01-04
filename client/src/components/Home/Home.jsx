@@ -90,7 +90,6 @@ export default function Home(){
  };
 
 
-
  
  return(
     <div>
@@ -158,9 +157,10 @@ export default function Home(){
             <Paginado
             videogamesPerPage={videogamesPerPage}
             allVideogames={allVideogames.length}
-            paginado={paginado}/>
-            <button onClick={previousPage} disabled={btnActivePrev}>◄</button>
-            <button onClick={nextPage} disabled={btnActiveNext}>►</button>
+            paginado={paginado}
+            currentPage={currentPage}/>
+            <button className="arrow" onClick={previousPage} disabled={btnActivePrev}>◄</button>
+            <button className="arrow" onClick={nextPage} disabled={btnActiveNext}>►</button>
         </div>
     </div>
  )

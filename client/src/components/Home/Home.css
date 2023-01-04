@@ -23,3 +23,25 @@
   background: linear-gradient(to top, #000000, #0BE321);
 }
 
+.arrow {
+  width: 40px;
+  height: 40px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #101010;
+  background: #0000;
+  border-color: #0BE321;
+}
+
+.arrow:hover {
+  font-weight: 900;
+  border-color: #101010;
+  background: #0BE321;
+  color: #101010;
+}
+

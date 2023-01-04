@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import '../Landing/Landing.css'
 
  function LandingPage(){
     return(
-    <div>
-        <h1>Welcome to the best video game page!</h1>
-        <Link to ='/home'>
-            <button>Open videogame store</button>
-        </Link>
+    <div className="background">
+        <div className="landing">
+            <h1>WELCOME TO THE BEST VIDEOGAME PAGE!</h1>
+            <Link to ='/home'>
+                <button className="button">OPEN VIDEOGAME DATABASE</button>
+            </Link>
+        </div>
     </div>
     );
 }

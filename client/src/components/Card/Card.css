@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-  color: #0BE321;
+  color: #0BE321 !important;
   background-color: rgb(10, 15, 10) ;
-  border: 5px solid lightgray;
+  border: 5px solid #0be320a2;
   border-radius: 10px;
   }
 
@@ -15,7 +15,7 @@
   }
   
   .gameCard img {
-    width: 290px;
+    width: 298px;
     height: 200px;
   }
   

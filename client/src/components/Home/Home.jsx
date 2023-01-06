@@ -92,13 +92,20 @@ export default function Home(){
 
  
  return(
-    <div>
+    <div className="general">
       {/* <h1>HOME</h1> */}
-      <div>
-        <Link to= '/videogame'><button>Create Videogame</button></Link>
-        <SearchBar />
+      <div className="top">
+         <div className="buttonCreate">
+         <Link to= '/videogame'><button>Create Videogame</button></Link>
+         </div>
+        <div className="searchbar">
+         <SearchBar />
+        </div>
+        
       </div>
-        <h1>THE VIDEOGAME DATABASE - DAVID HURTADO</h1>
+      <div className="title">
+         <h1>THE VIDEOGAME DATABASE - DAVID HURTADO</h1>
+      </div>
         <div>
          <div>
             <button className="filters" onClick={e=> {handleClick(e)}}>

@@ -1,15 +1,19 @@
+.background {
+    background-image: url(../../images/opcion1.jpg);
+    width: 100vw;
+    height: 100vh;
+}
 .landing {
     font-family: 'arial black';
     color: #000000 !important;
     font-size: 28px;
-    text-shadow: 2px 2px 0px #0BE321;
+    text-shadow: 5px 5px 5px #0BE321;
     position: absolute;
-    top: 50%;
+    top: 68%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    width: max-content;
-    height: max-content;
+    width: 80%;
+    height: 80%;
 }
 
 .button {

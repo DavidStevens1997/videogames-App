@@ -1,0 +1,58 @@
+body {
+    background: #777;
+}
+
+.containerDetail {
+    margin: 8px;
+    
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    
+}
+
+.buttonBack {
+    margin: 11px;
+    font-family: 'arial black';
+    color: #000000 !important;
+    font-size: 18px;
+    text-shadow: 1px 1px 0px #0BE321;
+    box-shadow: 1px 1px 1px #0BE321;
+    padding: 2px 4px;
+    border-radius: 10px;
+    border: 2px solid #0F1C24;
+    background: #0BE321;
+    
+}
+
+.buttonBack:hover {
+    color: #000000 !important;
+    background: #000000;
+    background: linear-gradient(to top, #000000, #0BE321);
+}
+
+.detail {
+    margin: 8px;
+    font-family: 'arial black';
+    color: #000000 !important;
+    font-size: 15px;
+    text-shadow: 3px 2px 5px #0BE321, 0 0 5px;
+    float: right;
+    
+}
+
+.imgGame {
+    width: 300px; 
+    height: 500px;
+    border: 10px solid #0BE321;
+    float: left;
+    
+    
+}
+
+.imgGame:hover {
+    box-shadow: 3px 0px 30px #0BE321;
+}

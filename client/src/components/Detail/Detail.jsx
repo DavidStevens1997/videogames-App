@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 import {Link, useParams } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import {videogameDetail} from '../../actions/index';
-
+import '../Detail/Detail.css'
 
 export default function Detail(props){
     const dispatch = useDispatch()
@@ -18,25 +18,29 @@ export default function Detail(props){
     const videogame = useSelector((state) => state.videogameDetail);
 
       return(
-        <div>
+        <div className="containerDetail">
+          <Link to = '/home'>
+            <button className="buttonBack">Back Home</button>
+          </Link>
           {
             videogame.name ? (
-            <div>
-              <img src={videogame.background_image} alt="imagen" width="500px" height="700px" />
-              <h1>{videogame.name}</h1>
-              <h5>{videogame.genres.map(e => e + ("  "))}</h5>
-              <h5>{videogame.platforms.map(e => e + ("  "))}</h5>
-              <h6>{videogame.rating}</h6>
-              <h6>{videogame.released}</h6>
-              <p>{videogame.description}</p>
+            <div className="container">
+              <div>
+                <img src={videogame.background_image} alt="imagen" className="imgGame"/>
+              </div>
+              <div className="detail">
+                <h1>Name: {videogame.name}</h1>
+                <h5>Genres: {videogame.genres.map(e => e + ("  "))}</h5>
+                <h5>Platforms: {videogame.platforms.map(e => e + ("  "))}</h5>
+                <h6>Rating: {videogame.rating}</h6>
+                <h6>Released: {videogame.released}</h6>
+                <p>Description: {videogame.description}</p>
+              </div>
             </div>
             ) : (
               <p>Loading...</p>
             )
           }
-          <Link to = '/home'>
-            <button>Back Home</button>
-          </Link>
         </div>
       )
 }

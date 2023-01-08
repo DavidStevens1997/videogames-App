@@ -66,10 +66,21 @@ export default function VideogameCreate(){
         })
       }; 
 
-    function handleSubmit(e){
+      function handleSubmit(e){
         e.preventDefault();
         let videogame = input;
-        videogame.platforms = Object.values(selectPlatforms)
+        videogame.platforms = Object.values(selectPlatforms);
+        dispatch(postVideogame(videogame))
+        alert("Videogame created!")
+        setInput({
+            background_image: "",
+            name: "", 
+            released: "",
+            rating: "", 
+            platforms:[], 
+            genres: [],
+            description: "",
+        })
         history.push('/home');
     }
 

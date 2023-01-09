@@ -93,7 +93,6 @@ export default function Home(){
  
  return(
     <div className="general">
-      {/* <h1>HOME</h1> */}
       <div className="top">
          <div className="buttonCreatePosition">
          <Link to= '/videogame'><button className="buttonCreate">Create Videogame</button></Link>

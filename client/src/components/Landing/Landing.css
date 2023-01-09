@@ -7,16 +7,20 @@
     font-family: 'arial black';
     color: #000000 !important;
     font-size: 28px;
-    text-shadow: 5px 5px 5px #0BE321;
+    text-shadow: 4px 2px 5px #0BE321;
     position: absolute;
-    top: 68%;
+    top: 71%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
 }
 
-.button {
+.landing:hover {
+    text-shadow: 5px 5px 8px #0BE321, 0 0 5px;
+}
+
+.buttonOpen {
     font-family: 'arial black';
     color: #000000 !important;
     font-size: 14px;
@@ -28,7 +32,7 @@
     background: #0BE321;
 }
 
-.button:hover {
+.buttonOpen:hover {
     color: #000000 !important;
     background: #000000;
     background: linear-gradient(to top, #000000, #0BE321);

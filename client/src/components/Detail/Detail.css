@@ -1,5 +1,8 @@
 body {
-    background: #777;
+    /* background: #777; */
+    background-image: url(../../images/opcion1.jpg);
+    max-width: 200vw;
+    max-height: 200vh;
 }
 
 .containerDetail {
@@ -35,17 +38,22 @@ body {
 }
 
 .detail {
-    margin: 8px;
+    margin: 10px;
     font-family: 'arial black';
     color: #000000 !important;
-    font-size: 15px;
+    font-size: 16px;
     text-shadow: 3px 2px 5px #0BE321, 0 0 5px;
     float: right;
+    background: #0be32085;
     
 }
 
+.detail:hover {
+    box-shadow: 3px 0px 30px #0BE321;
+}
+
 .imgGame {
-    width: 300px; 
+    width: 500px; 
     height: 500px;
     border: 10px solid #0BE321;
     float: left;

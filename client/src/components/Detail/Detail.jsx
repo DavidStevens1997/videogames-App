@@ -30,10 +30,10 @@ export default function Detail(props){
               </div>
               <div className="detail">
                 <h1>Name: {videogame.name}</h1>
-                <h5>Genres: {videogame.genres.map(e => e + ("  "))}</h5>
-                <h5>Platforms: {videogame.platforms.map(e => e + ("  "))}</h5>
-                <h6>Rating: {videogame.rating}</h6>
-                <h6>Released: {videogame.released}</h6>
+                <h3>Genres: {videogame.genres.map(e => e + ("  "))}</h3>
+                <h3>Platforms: {videogame.platforms.map(e => e + ("  "))}</h3>
+                <h4>Rating: {videogame.rating}</h4>
+                <h4>Released: {videogame.released}</h4>
                 <p>Description: {videogame.description}</p>
               </div>
             </div>

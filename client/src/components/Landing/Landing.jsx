@@ -8,7 +8,7 @@ import '../Landing/Landing.css'
         <div className="landing">
             <h1>WELCOME TO THE BEST VIDEOGAME PAGE!</h1>
             <Link to ='/home'>
-                <button className="button">OPEN VIDEOGAME DATABASE</button>
+                <button className="buttonOpen">OPEN VIDEOGAME DATABASE</button>
             </Link>
         </div>
     </div>

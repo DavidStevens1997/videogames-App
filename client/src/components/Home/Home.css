@@ -1,4 +1,5 @@
-.general {
+body {
+    /* background: #777; */
     background-image: url(../../images/opcion1.jpg);
     max-width: 200vw;
     max-height: 200vh;
@@ -7,6 +8,7 @@
 .top {
     display: inline-block;
     float: right;
+    
 }
 
 .buttonCreatePosition {
@@ -17,7 +19,7 @@
     margin: 11px 10px 0px 11px;
     font-family: 'arial black';
     color: #000000 !important;
-    font-size: 12px;
+    font-size: 13px;
     text-shadow: 1px 1px 0px #0BE321;
     box-shadow: 1px 1px 1px #0BE321;
     padding: 2px 4px;
@@ -45,11 +47,16 @@
     padding: 10px;
     
 }
+
 .title {
     font-family: 'arial black';
     color: #000000 !important;
     font-size: 15px;
     text-shadow: 3px 2px 5px #0BE321, 0 0 5px #0be3b4;
+}
+
+.title:hover {
+    text-shadow: 5px 5px 8px #0BE321, 0 0 5px  #0be3b4;
 }
 .filters {
     font-family: 'arial black';
@@ -61,6 +68,7 @@
     border-radius: 10px;
     border: 2px solid #000000;
     background: #0BE321;
+    margin-bottom: 15px;
 }
 
 .filters:hover {

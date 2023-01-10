@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import {Link, useHistory } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import {postVideogame, getGenres} from '../../actions/index';
+import '../VideogameCreate/VideogameCreate.css';
 
   let selectPlatforms = {
     platformOne: '',
@@ -89,67 +90,79 @@ export default function VideogameCreate(){
     }, []);
 
     return(
-        <div>
-        <Link to= '/home'><button>Back</button></Link>
-        <h1>Create your videogame!</h1>
+        <div className="containerCreate">
+        <Link to= '/home'><button className="buttonBack">Back</button></Link>
+        <div className="titleCreate">
+            <h1>CREATE YOUR VIDEOGAME!</h1>
+        </div>
         <form onSubmit={(e) => handleSubmit(e)}>
-        <button type='submit'>Create Videogame</button>
-        <div>
-            <label>Url-Image:</label>
-            <input
-            type="text"
-            value={input.background_image}
-            name= "background_image"
-            onChange={(e) => handleChange(e)}
-            />
+        <div className="positionButton">
+            <button type='submit' className="buttonCreategame">Create Videogame</button>
         </div>
-        <div>
-            <label>Name:</label>
-            <input
-            type="text"
-            value={input.name}
-            name= "name"
-            onChange={(e) => handleChange(e)}
-            />
-            {errors.name && (
-            <p className="error">{errors.name}</p>
-            )}
+        <div className="inputs">
+            <div>
+                <label>Url-Image:</label>
+                <input
+                type="text"
+                value={input.background_image}
+                name= "background_image"
+                onChange={(e) => handleChange(e)}
+                className="inputCreate"
+                />
+            </div>
+            <div>
+                <label>Name:</label>
+                <input
+                type="text"
+                value={input.name}
+                name= "name"
+                onChange={(e) => handleChange(e)}
+                className="inputCreate"
+                />
+                {errors.name && (
+                <p className="error">{errors.name}</p>
+                )}
+            </div>
+            <div>
+                <label>Released:</label>
+                <input
+                type="string"
+                value={input.released}
+                name= "released"
+                onChange={(e) => handleChange(e)}
+                className="inputCreate"
+                />
+                {errors.released && (
+                <p className="error">{errors.released}</p>
+                )}
+            </div>
+            <div>
+                <label>Rating:</label>
+                <input
+                type="number"
+                value={input.rating}
+                name= "rating"
+                onChange={(e) => handleChange(e)}
+                className="inputCreate"
+                />
+                {errors.rating && (
+                <p className="error">{errors.rating}</p>
+                )}
+            </div>
+            <div>
+                <label>Description:</label>
+                <input
+                type="string"
+                /* style="width:200px;height:15px" */
+                value={input.description}
+                name= "description"
+                onChange={(e) => handleChange(e)}
+                className="inputDescription"
+                />
+            </div>
         </div>
-        <div>
-            <label>Released:</label>
-            <input
-            type="string"
-            value={input.released}
-            name= "released"
-            onChange={(e) => handleChange(e)}
-            />
-            {errors.released && (
-            <p className="error">{errors.released}</p>
-            )}
-        </div>
-        <div>
-            <label>Rating:</label>
-            <input
-            type="number"
-            value={input.rating}
-            name= "rating"
-            onChange={(e) => handleChange(e)}
-            />
-            {errors.rating && (
-            <p className="error">{errors.rating}</p>
-            )}
-        </div>
-        <div className="descriptionContainer">
-            <label>Description:</label>
-            <input
-            type="string"
-            /* style="width:200px;height:15px" */
-            value={input.description}
-            name= "description"
-            onChange={(e) => handleChange(e)}
-            />
-        </div>
-        <select name="platformOne" onChange={(e) => handlePlatform(e)}>
+        
+        <select className="filtersCreate" name="platformOne" onChange={(e) => handlePlatform(e)}>
             <option>Select a Platform*</option>
             <option value="PC">PC</option>
             <option value="PlayStation">PlayStation</option>
@@ -157,7 +170,7 @@ export default function VideogameCreate(){
             <option value="Other">Other</option>
         </select>
 
-        <select name="platformTwo" onChange={(e) => handlePlatform(e)}>
+        <select className="filtersCreate" name="platformTwo" onChange={(e) => handlePlatform(e)}>
             <option>Select a Platform</option>
             <option value="PC">PC</option>
             <option value="PlayStation">PlayStation</option>
@@ -165,7 +178,7 @@ export default function VideogameCreate(){
             <option value="Other">Other</option>
         </select>
 
-        <select name="genreOne" onChange={(e) => handleGenre(e)}>
+        <select className="filtersCreate" name="genreOne" onChange={(e) => handleGenre(e)}>
             <option>Select a Genre*</option>
             {genres.map((genre) => (
             <option value={genre.name}>{genre.name}</option>

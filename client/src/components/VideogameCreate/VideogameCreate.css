@@ -1,40 +1,119 @@
-* {
-    box-sizing:  border-box;
-}
-
 body {
-    background: rgb(116, 112, 112);
+    background-color: #777;
 }
 
-main {
-    max-width: 800px;
+.containerCreate {
+    max-width: 900px;
     width: 90%;
     margin: auto;
-    padding: 40px;
+    padding: 50px;
+}
+
+.buttonBack {
+    font-family: 'arial black';
+    color: #000000 !important;
+    font-size: 14px;
+    text-shadow: 1px 1px 0px #0BE321;
+    box-shadow: 1px 1px 1px #0BE321;
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    background: #0BE321;
+    float:right; clear: both; 
+    margin: 23px 0px 0px 0px;
+}
+
+.buttonBack:hover {
+    color: #000000 !important;
+    background: #000000;
+    background: linear-gradient(to top, #000000, #0BE321);
+}
+
+.titleCreate {
+    font-family: 'arial black';
+    color: #000000 !important;
+    font-size: 15px;
+    text-shadow: 3px 2px 5px #0BE321, 0 0 5px #0be3b4;
+
+}
+
+.buttonCreategame {
+    font-family: 'arial black';
+    color: #000000 !important;
+    font-size: 14px;
+    text-shadow: 1px 1px 0px #0BE321;
+    box-shadow: 1px 1px 1px #0BE321;
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    background: #0BE321;
+    margin: 20px;
+    
+}
+
+.buttonCreategame:hover {
+    color: #000000 !important;
+    background: #000000;
+    background: linear-gradient(to top, #000000, #0BE321);
+}
+
+.inputs {
+    margin: 15px;
+    display: block;
+}
+
+.inputCreate {
+    margin: 8px;
+    border-radius: 3px;
+    padding: 1px 0px;
+    border: 2px solid #0BE321;
+    color: #fdfdfd;
+    background-color: black;
+    
+}
+
+.inputCreate::placeholder {
+    color: #fdfdfd;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.inputDescription {
+    margin: 8px;
+    border-radius: 3px;
+    padding: 1px 0px;
+    border: 2px solid #0BE321;
+    color: #fdfdfd;
+    background-color: black;
+}
+
+.inputDescription::placeholder {
+    color: #fdfdfd;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 label {
-    display: block;
-    font-weight: 700;
-    padding: 10px;
-    min-height: 30px;
-    cursor: pointer;
-    color: #0BE321 !important;
-    
-    
+    font-family: 'arial black';
+    color: #000000 !important;
+    font-size: 15px;
+    text-shadow: 3px 2px 5px #0BE321, 0 0 5px #0be3b4;
 }
 
-input {
-    background: #fff;
-    border-radius: 3px;
-    height: 35px;
-    padding: 0 40px 0 10px;
-    transition: .3s ease all;
-    border: 3px solid transparent;
+p {
+    color: #000000 !important;
+    text-shadow: 3px 2px 5px #0BE321, 0 0 5px #0be3b4;
+    font-size: 25px;
 }
 
-input:focus{
-    border: 3px solid #0BE321;
-    outline: none;
-    box-shadow: 3px 0px 30px ;
+.filtersCreate {
+    font-family: 'arial black';
+    color: #000000 !important;
+    font-size: 13px;
+    text-shadow: 1px 1px 0px #0BE321;
+    box-shadow: 1px 1px 1px #0BE321;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    background: #0BE321;
 }

@@ -13,7 +13,8 @@ import {
 import SearchBar from "../SearchBar/SearchBar";
 import GameCard from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
-import '../Home/Home.css'
+import '../Home/Home.css';
+import Loading from "../Loading/Loading.jsx";
 
 export default function Home(){
 
@@ -143,30 +144,40 @@ export default function Home(){
                })}
                </select>
          </div>
-         <div className="videogamesContainer">
-            {currentVideogames?.map((videogame) =>{
-               return (
-                  <section>
-                     <Link to={'/home/' + videogame.id}>
-                        <GameCard 
-                        name={videogame.name} 
-                        image={videogame.background_image} 
-                        genres={videogame.genres}
-                        rating={videogame.rating} 
-                        id={videogame.id}/>
-                     </Link>
-                  </section>
-               );
-            })}
-         </div>
+            {allVideogames.length > 0 ? (
+               <div className="videogamesContainer">
+               {currentVideogames?.map((videogame) =>{
+                  return (
+                     <section>
+                        <Link to={'/home/' + videogame.id}>
+                           <GameCard 
+                           name={videogame.name} 
+                           image={videogame.background_image} 
+                           genres={videogame.genres}
+                           rating={videogame.rating} 
+                           id={videogame.id}/>
+                        </Link>
+                     </section>
+                  );
+               })}
+            </div>
+            ) : (
+               <div>
+                  <Loading />
+               </div>
+            )
+            }
          
-            <Paginado
+            <div>
+               <Paginado
             videogamesPerPage={videogamesPerPage}
             allVideogames={allVideogames.length}
             paginado={paginado}
             currentPage={currentPage}/>
             <button className="arrow" onClick={previousPage} disabled={btnActivePrev}>◄</button>
             <button className="arrow" onClick={nextPage} disabled={btnActiveNext}>►</button>
+            </div>
+            
         </div>
     </div>
  )

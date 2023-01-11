@@ -19,9 +19,11 @@ export default function Detail(props){
 
       return(
         <div className="containerDetail">
-          <Link to = '/home'>
-            <button className="buttonBack">Back Home</button>
-          </Link>
+          <div>
+            <Link to = '/home'>
+              <button className="buttonBack">Back Home</button>
+            </Link>
+          </div>
           {
             videogame.name ? (
             <div className="container">

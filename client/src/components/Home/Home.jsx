@@ -98,6 +98,9 @@ export default function Home(){
          <div className="buttonCreatePosition">
          <Link to= '/videogame'><button className="buttonCreate">Create Videogame</button></Link>
          </div>
+         {/* <div className="buttonCreatePosition">
+         <Link to= '/'><button className="buttonCreate">Back</button></Link>
+         </div> */}
         <div className="searchbar">
          <SearchBar />
         </div>

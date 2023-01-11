@@ -9,8 +9,8 @@ const Loading = () => {
         <img
           src={marioLoading}
           alt="MarioImage not found"
-          width="200px"
-          height="200px"
+          width="350px"
+          height="350px"
         />
         <h2 className="loading-text"> Loading... </h2>
       </div>

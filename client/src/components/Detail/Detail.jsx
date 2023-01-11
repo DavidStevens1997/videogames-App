@@ -3,7 +3,8 @@ import {useEffect} from 'react';
 import {Link, useParams } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import {videogameDetail} from '../../actions/index';
-import '../Detail/Detail.css'
+import '../Detail/Detail.css';
+import Loading from "../Loading/Loading.jsx";
 
 export default function Detail(props){
     const dispatch = useDispatch()
@@ -40,7 +41,9 @@ export default function Detail(props){
               </div>
             </div>
             ) : (
-              <p>Loading...</p>
+              <div>
+                  <Loading />
+               </div>
             )
           }
         </div>

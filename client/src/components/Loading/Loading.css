@@ -11,10 +11,12 @@
     margin-top: 10px;
     padding: 10px;
     letter-spacing: 1px;
+    color: #000000 !important;
+    text-shadow: 3px 2px 5px #0BE321, 0 0 5px #0be3b4;
   }
   
   .loading-container {
-    background: linear-gradient(to right, #1d1c1a, #0BE321);
+    /* background: linear-gradient(to right, #1d1c1a, #0BE321);
     background-repeat: no-repeat;
     background-size: auto 100%;
     position: fixed;
@@ -22,6 +24,9 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-position: center center;
+    background-position: center center; */
+    background-image: url(../../images/opcion1.jpg);
+    max-width: 200vw;
+    max-height: 200vh;
   }
   

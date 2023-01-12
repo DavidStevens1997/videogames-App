@@ -18,7 +18,15 @@ describe('Videogame routes', () => {
     .then(() => Videogame.create(videogame)));
   describe('GET /videogames', () => {
     it('should get 200', () =>
-      agent.get('/videogames').expect(200)
-    );
+      agent.get('/videogames').expect(200));
+    
+    //-----------------------------------------------------------------------
+
+    it('should get 200 if the videogame exists - by name', () =>
+      agent.get('/videogames?name=Tetris').expect(200));
+    it('should get 200 if the videogame exists - by ID', () =>
+      agent.get('/videogame/52623').expect(200));
+    it('should get 404 if the videogame does not exist', () =>
+      agent.get('/videogame/testTest!').expect(404));
   });
 });

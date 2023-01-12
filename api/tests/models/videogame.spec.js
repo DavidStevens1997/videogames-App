@@ -17,6 +17,14 @@ describe('Videogame model', () => {
       it('should work when its a valid name', () => {
         Recipe.create({ name: 'Super Mario Bros' });
       });
+
+      //-------------------------------------------------------------------------
+
+      it('should return all genres', (done) => {
+        Genres.findAll()
+          .then((response) => done(expect(response).toHaveLength(19)))
+          .catch(() => done());
+      });
     });
   });
 });

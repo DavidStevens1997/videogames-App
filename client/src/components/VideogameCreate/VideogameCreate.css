@@ -5,8 +5,10 @@ body {
 .containerCreate {
     max-width: 900px;
     width: 90%;
-    margin: auto;
+    margin-top: 20px;
+    margin-left: 295px;
     padding: 50px;
+    background: #0be32057;
 }
 
 .buttonBack {

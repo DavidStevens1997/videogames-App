@@ -5,7 +5,7 @@ import "../NotFound/NotFound.css";
 
 const NotFound = () => {
     return(
-        <div className="background">
+        <div className="backgroundError">
             <div className="pageError">
                 <h1>404 NOT FOUND</h1>
                 <Link to ='/home'>

@@ -16,12 +16,13 @@ export default function SearchBar(){
    function handleSubmit(e){
       e.preventDefault();
       dispatch(getNameVideogames(name));
-      setName("")
+      document.getElementById('search').value = "";
    }
 
    return(
       <div>
          <input
+         id="search"
          type= 'text'
          placeholder="Search Name...."
          onChange={(e) => handleInputChange(e)}

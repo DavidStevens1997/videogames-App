@@ -44,22 +44,25 @@ export default function rootReducer (state= initialState, action){
         case ORDER_NAME:
           let sortedArr = action.payload === 'asc' ?
               state.videogames.sort(function (a, b){
-                if (a.name > b.name){
+               /*  if (a.name > b.name){
                   return 1;
                 }
                 if (b.name > a.name) {
                   return -1;
                 }
-                return 0;
+                return 0; */
+                
+                return a.name.localeCompare(b.name)
               }) : 
               state.videogames.sort(function (a, b){
-                if (a.name > b.name){
+               /*  if (a.name > b.name){
                   return -1;
                 }
                 if (b.name > a.name) {
                   return 1;
                 }
-                return 0;
+                return 0; */
+                return b.name.localeCompare(a.name)
               })
           return {
             ...state,

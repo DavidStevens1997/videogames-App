@@ -99,9 +99,6 @@ export default function Home(){
             <div className="buttonCreatePosition">
             <Link to= '/videogame'><button className="buttonCreate">Create Videogame</button></Link>
             </div>
-            {/* <div className="buttonCreatePosition">
-            <Link to= '/'><button className="buttonCreate">Back</button></Link>
-            </div> */}
          <div className="searchbar">
             <SearchBar />
          </div>
@@ -110,6 +107,7 @@ export default function Home(){
          <div className="title">
             <h1>THE VIDEOGAME DATABASE - DAVID HURTADO</h1>
          </div>
+      </div>
          <div>
             <div>
                <button className="filters" onClick={e=> {handleClick(e)}}>
@@ -181,8 +179,6 @@ export default function Home(){
             <button className="arrow" onClick={previousPage} disabled={btnActivePrev}>◄</button>
             <button className="arrow" onClick={nextPage} disabled={btnActiveNext}>►</button>
             </div>
-            
-        </div>
     </div>
  )
 

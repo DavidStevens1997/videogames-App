@@ -44,8 +44,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
     
+}
+
+.card {
+    padding: 10px 20px;
 }
 
 .title {

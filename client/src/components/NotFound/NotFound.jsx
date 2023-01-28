@@ -8,7 +8,7 @@ const NotFound = () => {
         <div className="backgroundError">
             <div className="pageError">
                 <h1>404 NOT FOUND</h1>
-                <Link to ='/home'>
+                <Link to ='/'>
                     <button className="buttonOpen">GO BACK HOME</button>
                 </Link>
             </div>

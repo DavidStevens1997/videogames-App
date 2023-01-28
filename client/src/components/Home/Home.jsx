@@ -94,72 +94,73 @@ export default function Home(){
  
  return(
     <div className="general">
-      <div className="top">
-         <div className="buttonCreatePosition">
-         <Link to= '/videogame'><button className="buttonCreate">Create Videogame</button></Link>
+      <div className="nav">
+         <div className="top">
+            <div className="buttonCreatePosition">
+            <Link to= '/videogame'><button className="buttonCreate">Create Videogame</button></Link>
+            </div>
+            {/* <div className="buttonCreatePosition">
+            <Link to= '/'><button className="buttonCreate">Back</button></Link>
+            </div> */}
+         <div className="searchbar">
+            <SearchBar />
          </div>
-         {/* <div className="buttonCreatePosition">
-         <Link to= '/'><button className="buttonCreate">Back</button></Link>
-         </div> */}
-        <div className="searchbar">
-         <SearchBar />
-        </div>
-        
-      </div>
-      <div className="title">
-         <h1>THE VIDEOGAME DATABASE - DAVID HURTADO</h1>
-      </div>
-        <div>
+         
+         </div>
+         <div className="title">
+            <h1>THE VIDEOGAME DATABASE - DAVID HURTADO</h1>
+         </div>
          <div>
-            <button className="filters" onClick={e=> {handleClick(e)}}>
-               Load all games
-            </button>
-            <select className="filters" onChange={e => nameHandleSort(e)}>
-               <option value="" selected>
-                  Sort by alphabet!
-               </option>
-               <option value="asc">⬆ Ascending</option>
-               <option value="desc">⬇ Descending</option>
-            </select>
-
-            <select className="filters" onChange={e => ratingHandleSort(e)}>
-               <option value="" selected>
-                  Sort by rating!
-               </option>
-               <option value="asc">⬆ Ascending</option>
-               <option value="desc">⬇ Descending</option>
-            </select>
-
-            <select className="filters" onChange={e => handleFilterCreated(e)}>
-               <option value="All" selected>
-                  All Videogames
-               </option>
-               <option value="Created">Created</option>
-               <option value="Existing">Existing</option>
-            </select>
-            
-            <select className="filters" onChange={e => genreFilterHandler(e)}>
-               <option value="All" selected>
-                  All Genres
-               </option>
-               {allGenres?.map((genre) => {
-                  return <option key={genre.id} value={genre.name}>{genre.name}</option>;
-               })}
+            <div>
+               <button className="filters" onClick={e=> {handleClick(e)}}>
+                  Load all games
+               </button>
+               <select className="filters" onChange={e => nameHandleSort(e)}>
+                  <option value="" selected>
+                     Sort by alphabet!
+                  </option>
+                  <option value="asc">⬆ Ascending</option>
+                  <option value="desc">⬇ Descending</option>
                </select>
+
+               <select className="filters" onChange={e => ratingHandleSort(e)}>
+                  <option value="" selected>
+                     Sort by rating!
+                  </option>
+                  <option value="asc">⬆ Ascending</option>
+                  <option value="desc">⬇ Descending</option>
+               </select>
+
+               <select className="filters" onChange={e => handleFilterCreated(e)}>
+                  <option value="All" selected>
+                     All Videogames
+                  </option>
+                  <option value="Created">Created</option>
+                  <option value="Existing">Existing</option>
+               </select>
+               
+               <select className="filters" onChange={e => genreFilterHandler(e)}>
+                  <option value="All" selected>
+                     All Genres
+                  </option>
+                  {allGenres?.map((genre) => {
+                     return <option key={genre.id} value={genre.name}>{genre.name}</option>;
+                  })}
+                  </select>
+            </div>
          </div>
             {allVideogames.length > 0 ? (
                <div className="videogamesContainer">
                {currentVideogames?.map((videogame) =>{
                   return (
-                     <section>
-                        <Link to={'/home/' + videogame.id}>
+                     <section className="card">
                            <GameCard 
                            name={videogame.name} 
                            image={videogame.background_image} 
                            genres={videogame.genres}
                            rating={videogame.rating} 
                            id={videogame.id}/>
-                        </Link>
+                     
                      </section>
                   );
                })}
